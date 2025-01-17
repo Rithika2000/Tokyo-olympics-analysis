@@ -124,31 +124,31 @@ Olympics dataset.
 
 ## Architecture Diagram
 
-  1.Data Source
+  * 1.Data Source
       * Output: Raw data in its initial format, ready to be ingested by the Azure ecosystem.
-  2.Data Integration – Azure Data Factory
+  * 2.Data Integration – Azure Data Factory
       * Input: Raw data from the data source.
       * Process: ADF extracts the data, applies basic validation (if needed), and transfers it to
         Azure Data Lake Storage Gen 2 for raw storage.
       * Output: Raw data stored in Azure Data Lake Gen 2, the raw data storage layer.
-  3.Raw Data Storage – Azure Data Lake Storage Gen 2
+  * 3.Raw Data Storage – Azure Data Lake Storage Gen 2
       * Input: Raw data ingested by Azure Data Factory.
       * Output: Stored raw data, ready for transformation in subsequent steps.
-  4.Data Transformation – Azure Databricks
+  * 4.Data Transformation – Azure Databricks
       * Input: Raw data from Azure Data Lake Gen 2.
       * Process: Azure Databricks loads the raw data, performs necessary transformations, and
         applies data processing steps like filtering, aggregation, and standardization.
       * Output: Transformed, clean data stored back in Azure Data Lake Gen 2 for further
         analysis.
-  5. Transformed Data Storage – Azure Data Lake Storage Gen 2
+  * 5. Transformed Data Storage – Azure Data Lake Storage Gen 2
       * Input: Transformed data from Azure Databricks.
       * Output: Ready-to-analyze data, stored and accessible for analytics services.
-  6. Analytics – Azure Synapse Analytics
+  * 6. Analytics – Azure Synapse Analytics
       * Process: Synapse loads and queries the transformed data, allowing for in-depth analysis
         to derive insights, trends, and metrics that are valuable for stakeholders.
       * Output: Analytical results and datasets, which are ready to be visualized in the next
         stage.
-  7. Dashboard & Visualization - Tableau
+  * 7. Dashboard & Visualization - Tableau
       * Input: Analytical outputs and query results from Azure Synapse Analytics.
       * Process: Visualization tool connects to Synapse, pulling data to create dashboards that
         present key metrics, insights, and trends. These dashboards enable stakeholders to
