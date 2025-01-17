@@ -173,8 +173,11 @@ Olympics dataset.
 ## References / Sources of Information
 
 Below are links and resources you’ll use in the project:
+
     * Dataset Source: Kaggle - https://www.kaggle.com/datasets/arjunprasadsarkhel/2021-olympics-in-tokyo
+    
     * Azure Documentation:
+    
         * Azure Data Factory - https://learn.microsoft.com/en-us/azure/data-factory/
         * Azure Data Lake Storage Gen2 - https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction
         * Azure Databricks - https://learn.microsoft.com/en-us/azure/databricks/
