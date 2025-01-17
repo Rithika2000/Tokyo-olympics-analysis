@@ -29,16 +29,17 @@ demographics, country performance, and event participation.
 Below are the Azure services and tools that will be used in this project:
 
 **1. Azure Data Factory:**
-     * Purpose: Data Factory acts as the primary tool for orchestrating and automating
-       data ingestion pipelines. It enables data extraction from the CSV files on GitHub
-       and facilitates movement into the Azure ecosystem.
+
+  * Purpose: Data Factory acts as the primary tool for orchestrating and automating
+    data ingestion pipelines. It enables data extraction from the CSV files on GitHub
+    and facilitates movement into the Azure ecosystem.
        
-     * Features Used: The Copy Data activity within a data pipeline will be configured
-       to retrieve the dataset over HTTP and save it into Azure Data Lake Storage Gen2.
+  * Features Used: The Copy Data activity within a data pipeline will be configured
+    to retrieve the dataset over HTTP and save it into Azure Data Lake Storage Gen2.
        
-     * Justification: Data Factory offers flexibility and scheduling capabilities, which
-       allow data engineers to control the timing and reliability of data ingestion for real-
-       time or batch processing needs.
+  * Justification: Data Factory offers flexibility and scheduling capabilities, which
+    allow data engineers to control the timing and reliability of data ingestion for real-
+    time or batch processing needs.
        
 Azure Data Factory (ADF) initiates the process by fetching the data from the GitHub
 source and storing it in Azure Data Lake Storage Gen2. Data Factory enables an
@@ -69,16 +70,16 @@ folder (e.g., "transformed_data"), creating a clear separation of raw and proces
 
 **3. Azure Databricks:**
    
-     * Purpose: Databricks is used to perform data transformations, data cleaning, and
-     any required data engineering tasks.
+  * Purpose: Databricks is used to perform data transformations, data cleaning, and
+    any required data engineering tasks.
    
-     * Features Used: This project utilizes Databricks’ notebooks to execute
-     transformations on the Tokyo Olympics data, including aggregations, filtering,
-     and mounting ADLS Gen2 for seamless access to the data.
+  * Features Used: This project utilizes Databricks’ notebooks to execute
+    transformations on the Tokyo Olympics data, including aggregations, filtering,
+    and mounting ADLS Gen2 for seamless access to the data.
    
-    * Justification: Databricks provides a collaborative, scalable platform for large-
-      scale data transformations using Spark, which improves processing speed and
-      flexibility for complex data engineering tasks.
+  * Justification: Databricks provides a collaborative, scalable platform for large-
+    scale data transformations using Spark, which improves processing speed and
+    flexibility for complex data engineering tasks.
       
 Azure Databricks transforms the data to make it suitable for analysis. It connects
 directly to ADLS Gen2 to read raw data and write transformed outputs back. Using
@@ -87,15 +88,15 @@ are performed, preparing the data for analytical tasks.
 
 **4. Azure Synapse Analytics:**
    
-   * Purpose: Synapse serves as the central hub for data analysis, enabling SQL-based
-     querying and analytical workflows on the transformed Tokyo Olympics dataset.
+  * Purpose: Synapse serves as the central hub for data analysis, enabling SQL-based
+    querying and analytical workflows on the transformed Tokyo Olympics dataset.
      
-   * Features Used: By creating tables and databases in Synapse from the transformed
-     datasets, we perform data analysis and SQL-based explorations.
+  * Features Used: By creating tables and databases in Synapse from the transformed
+    datasets, we perform data analysis and SQL-based explorations.
     
-   * Justification: Synapse provides a powerful environment for handling data
-     warehousing and analytics at scale. With its tight integration into the Azure
-     ecosystem, it ensures efficient data processing and analytics workflows.
+  * Justification: Synapse provides a powerful environment for handling data
+    warehousing and analytics at scale. With its tight integration into the Azure
+    ecosystem, it ensures efficient data processing and analytics workflows.
      
 
 Azure Synapse Analytics creates tables from the transformed data stored in ADLS
@@ -125,30 +126,43 @@ Olympics dataset.
 ## Architecture Diagram
 
   * 1. Data Source
+       
       * Output: Raw data in its initial format, ready to be ingested by the Azure ecosystem.
+        
   * 2. Data Integration – Azure Data Factory
+       
       * Input: Raw data from the data source.
       * Process: ADF extracts the data, applies basic validation (if needed), and transfers it to
         Azure Data Lake Storage Gen 2 for raw storage.
       * Output: Raw data stored in Azure Data Lake Gen 2, the raw data storage layer.
+        
   * 3. Raw Data Storage – Azure Data Lake Storage Gen 2
+       
       * Input: Raw data ingested by Azure Data Factory.
       * Output: Stored raw data, ready for transformation in subsequent steps.
+        
   * 4. Data Transformation – Azure Databricks
+       
       * Input: Raw data from Azure Data Lake Gen 2.
       * Process: Azure Databricks loads the raw data, performs necessary transformations, and
         applies data processing steps like filtering, aggregation, and standardization.
       * Output: Transformed, clean data stored back in Azure Data Lake Gen 2 for further
         analysis.
+       
   * 5. Transformed Data Storage – Azure Data Lake Storage Gen 2
+       
       * Input: Transformed data from Azure Databricks.
       * Output: Ready-to-analyze data, stored and accessible for analytics services.
+        
   * 6. Analytics – Azure Synapse Analytics
+       
       * Process: Synapse loads and queries the transformed data, allowing for in-depth analysis
         to derive insights, trends, and metrics that are valuable for stakeholders.
       * Output: Analytical results and datasets, which are ready to be visualized in the next
         stage.
-  * 7. Dashboard & Visualization - Tableau
+       
+  * 7. Dashboard & Visualization - Power BI
+       
       * Input: Analytical outputs and query results from Azure Synapse Analytics.
       * Process: Visualization tool connects to Synapse, pulling data to create dashboards that
         present key metrics, insights, and trends. These dashboards enable stakeholders to
