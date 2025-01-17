@@ -28,7 +28,7 @@ demographics, country performance, and event participation.
 
 Below are the Azure services and tools that will be used in this project:
 
-1. Azure Data Factory:
+**1. Azure Data Factory:**
      * Purpose: Data Factory acts as the primary tool for orchestrating and automating
        data ingestion pipelines. It enables data extraction from the CSV files on GitHub
        and facilitates movement into the Azure ecosystem.
@@ -48,7 +48,7 @@ data seamlessly to and from ADLS, leveraging the HTTP protocol to pull data from
 GitHub.
 
 
-2. Azure Data Lake Storage Gen2:
+**2. Azure Data Lake Storage Gen2:**
 
   * Purpose: This service is the primary data repository for storing both raw and
     processed data files.
@@ -67,7 +67,7 @@ ensuring raw data is securely stored and readily available for transformations. 
 transformation data from Databricks is written back to ADLS Gen2 under a different
 folder (e.g., "transformed_data"), creating a clear separation of raw and processed data.
 
-3. Azure Databricks:
+**3. Azure Databricks:**
    
      * Purpose: Databricks is used to perform data transformations, data cleaning, and
      any required data engineering tasks.
@@ -85,7 +85,7 @@ directly to ADLS Gen2 to read raw data and write transformed outputs back. Using
 Databricks’ Spark clusters and notebooks, data cleansing, enrichment, and aggregation
 are performed, preparing the data for analytical tasks.
 
-4. Azure Synapse Analytics:
+**4. Azure Synapse Analytics:**
    
    * Purpose: Synapse serves as the central hub for data analysis, enabling SQL-based
      querying and analytical workflows on the transformed Tokyo Olympics dataset.
@@ -103,7 +103,7 @@ Gen2, allowing for powerful, SQL-based analysis. Within Synapse, data analysts c
 explore data relationships, run analytical queries, and generate insights. This component
 completes the pipeline by facilitating advanced analysis of the Tokyo Olympics data.
 
-5. Power BI:
+**5. Power BI:**
    
   * Purpose: Power BI will be used to create interactive dashboards and visualizations,
     displaying insights from the Tokyo Olympics data analysis.
@@ -124,17 +124,17 @@ Olympics dataset.
 
 ## Architecture Diagram
 
-  * 1.Data Source
+  * 1. Data Source
       * Output: Raw data in its initial format, ready to be ingested by the Azure ecosystem.
-  * 2.Data Integration – Azure Data Factory
+  * 2. Data Integration – Azure Data Factory
       * Input: Raw data from the data source.
       * Process: ADF extracts the data, applies basic validation (if needed), and transfers it to
         Azure Data Lake Storage Gen 2 for raw storage.
       * Output: Raw data stored in Azure Data Lake Gen 2, the raw data storage layer.
-  * 3.Raw Data Storage – Azure Data Lake Storage Gen 2
+  * 3. Raw Data Storage – Azure Data Lake Storage Gen 2
       * Input: Raw data ingested by Azure Data Factory.
       * Output: Stored raw data, ready for transformation in subsequent steps.
-  * 4.Data Transformation – Azure Databricks
+  * 4. Data Transformation – Azure Databricks
       * Input: Raw data from Azure Data Lake Gen 2.
       * Process: Azure Databricks loads the raw data, performs necessary transformations, and
         applies data processing steps like filtering, aggregation, and standardization.
