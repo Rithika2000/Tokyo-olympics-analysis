@@ -169,6 +169,11 @@ Olympics dataset.
         explore the data interactively.
       * Output: User-friendly dashboard displaying analytics on Tokyo Olympic data, providing
         insights in real-time or near real-time.
+        
+Below is the Architecture Diagram
+
+![image](https://github.com/user-attachments/assets/94af2b2a-b94e-4bf8-931e-943c2f730f3c)
+
 
 ## References / Sources of Information
 
@@ -182,4 +187,9 @@ Below are links and resources you’ll use in the project:
         * Azure Data Lake Storage Gen2 - https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction
         * Azure Databricks - https://learn.microsoft.com/en-us/azure/databricks/
         * Azure Synapse Analytics - https://learn.microsoft.com/en-us/azure/synapse-analytics/
-         
+
+## Below is the Power BI Image
+
+   ![PowerBI_Screenshot](https://github.com/user-attachments/assets/40c40330-372d-4f12-9532-cfcb5706865d)
+
+
